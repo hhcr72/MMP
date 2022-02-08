@@ -1,0 +1,164 @@
+
+<p class="h3 text-center" id="titulo">Área de Monitoreo y Mantenimiento</p>
+<br>
+
+<div class="row">
+  <div class="col">
+    <canvas id="myChartParq" style="width:100%;max-width:800px"></canvas>
+  </div>
+  <div class="col">
+    <canvas id="myChartAv" style="width:100%;max-width:800px"></canvas>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p class="h6 ml-auto" id="titMap"></p>
+    <canvas id="myChartTotAv" style="width:80%;max-width:400px mx-auto"></canvas>
+  </div>
+   <div class="col">
+      <p class="h6 ml-auto" id="titMap"></p>
+    <canvas id="myChartMas" style="width:100%;max-width:800px"></canvas>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <body onload="mapaPa();">
+    <p class="h6" id="titMap">Parquímetros con Averia</p>
+    <div id="mapa" class="mx-auto"></div>
+  </div>
+</div>
+
+
+<script>
+//inventario  
+var xValues = ["Activos {{pqs.[0].ACTIVO}}", "Inactivos {{pqs.[0].INACTIVO}}", "En Reparación {{pqs.[0].REPARACION}}"];
+var yValues = [{{pqs.[0].ACTIVO}}, {{pqs.[0].INACTIVO}}, {{pqs.[0].REPARACION}}];
+
+var barColors = [
+  "#00aba9",
+  "#002f87",
+  "#c2b59b"
+  
+];
+
+new Chart("myChartParq", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Inventario de Parquímetros 2021-2024"
+    }
+  }
+
+});
+
+//averias en activas
+var xValuesA = ["Activas", "En Proceso"];
+var yValuesA = [{{pqavs.[0].ACTIVO}}, {{pqavs.[0].PROCESO}},0];
+
+
+var barColorsA = ["red","green"];
+
+let date = new Date();
+let fecha = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear();
+let hora =  String(date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
+new Chart("myChartAv", {
+  type: "bar",
+  data: {
+    labels: xValuesA,
+    datasets: [{
+      backgroundColor: barColorsA,
+      data: yValuesA
+    }]
+  },
+  options: {
+    responsive: true,
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Averias activas al " + fecha + ' a las ' + hora + ' hrs.'
+    }
+  }
+});
+
+//pq mas reportados
+var xValuesA = [{{pqmas.[0].pq}}, {{pqmas.[1].pq}}, {{pqmas.[2].pq}}, {{pqmas.[3].pq}}, {{pqmas.[4].pq}}];
+var yValuesA = [{{pqmas.[0].nrepo}}, {{pqmas.[1].nrepo}},{{pqmas.[2].nrepo}},{{pqmas.[3].nrepo}},{{pqmas.[4].nrepo}},0];
+var barColorsA = ["blue","pink","red","cyan","yellow"];
+new Chart("myChartMas", {
+  type: "bar",
+  data: {
+    labels: xValuesA,
+    datasets: [{
+      backgroundColor: barColorsA,
+      data: yValuesA
+    }]
+  },
+  options: {
+    legend: {display: false},
+    responsive: true,
+    title: {
+      display: true,
+      text: "PQ más reportado en el mes al " + fecha + ' a las ' + hora + ' hrs.'
+    }
+  }
+});
+
+
+//Totales averias
+var xValuesA = ["No da Ticket", "Fuera de Servicio", "Se come las monedas", "No lee ninguna moneda", "No recibe monedas", "Ticket tamaño irregular", "Monedas atoradas", "Ticket tamaño irregular con impresión", "Pantalla no muestra información", "Da menos Tiempo", "Pantalla Muestra Horario Adelantado", "Cancela Monedas", "Toma $10 como $2", "Registra pago devuelve monedas", "Apagado", "Tensión de pila placa", "Par de leds encendidos", "Vandalismo Grave", "Requiere Limpieza Profunda", "Pantalla Muestra Horario Atrasado", "Elemento Obstruye Información en Pantalla", "No comuníca", "Ticket en blanco", "Ticket borroso", "No corta ticket", "Da tickets pegados", "Esta en Reserva de tickets", "No funciona algun botón","Vandalismo Leve"];
+var yValuesA = [{{totav.[0].T1}}, {{totav.[0].S1}}, {{totav.[0].M4}}, {{totav.[0].M2}}, {{totav.[0].M3}}, {{totav.[0].T4}}, {{totav.[0].M1}}, {{totav.[0].T5}}, {{totav.[0].P1}}, {{totav.[0].M6}}, {{totav.[0].P2}}, {{totav.[0].M5}}, {{totav.[0].M7}}, {{totav.[0].M8}}, {{totav.[0].E1}}, {{totav.[0].E2}},{{totav.[0].E3}},{{totav.[0].A1}},{{totav.[0].A2}},{{totav.[0].P3}},{{totav.[0].P4}},{{totav.[0].P5}},{{totav.[0].T2}},{{totav.[0].T3}},{{totav.[0].T6}},{{totav.[0].T7}},{{totav.[0].T8}},{{totav.[0].B1}},{{totav.[0].A3}}];
+
+var barColorsA = ["red","#0000A0","green","#1569C7","#737CA1","#95B9C7","#2B65EC","#A0CFEC","#81C784","#90A4AE","#6D4C41","#FFA000","#FFCBA4","#786D5F","#FF00FF", "#E66C2C", "#4E387E", "#6C2DC7", "#4B0082", "#EC407A", "D28140", "#3A01DF", "green", "#D7DF01", "#FE9A2E", "#B43104", "#610B0B", "#01DFD7", "#EF5350"];
+
+
+new Chart("myChartTotAv", {
+  type: "bar",
+  data: {
+    labels: xValuesA,
+    datasets: [{
+      backgroundColor: barColorsA,
+      data: yValuesA
+    }]
+  },
+  options: {
+    responsive: true,
+    legend: {display: false},
+    title: {
+      display: true,
+      text: {{totav.[0].total}} + "  Averias registradas en el mes a la fecha del " + fecha + ' a las ' + hora + ' hrs.'
+    }
+  }
+});
+
+
+
+//mapas
+function mapaPa() {   
+    const mapa = L.map('mapa').setView([22.1628756, -100.9774847], 14);
+    const tileURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    L.tileLayer(tileURL).addTo(mapa)
+    
+    let iconMarker = L.icon({
+          iconUrl: '/img/pq-icon.png',
+          iconSize: [30, 30],
+          iconAnchor: [15,30]
+        })
+
+    //L.circle([22.1557722, -100.976438], {radius: 300}).addTo(mapa);
+
+    {{#each avs}}
+      L.marker([{{{latitud}}}, {{{longitud}}}], { icon: iconMarker }).addTo(mapa).bindPopup('Pq.{{{parqAveria}}} - a{{{nParqAnt}}} - z{{{zona}}} <br> {{{direccion}}}.').openPopup();
+    {{/each}}  
+}
+
+</script>

@@ -1,0 +1,70 @@
+
+   <div id="zona" class="btn-group dropends mx-auto">
+     <div class="form-floatings ">
+        <input type="search" id="buscar" class="form-control" placeholder="Buscar praquímetro ...">
+    </div>
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <button type="button"  class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Mapas
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/mapas/mapa">Activos</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa1">Zona 1</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa2">Zona 2</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa3">Zona 3</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa4">Zona 4</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa5">Zona 5</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa6">Zona 6</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa7">Zona 7</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa8">Zona 8</a></li>
+      <li><a class="dropdown-item" href="/mapas/mapa9">Zona 9</a></li>
+    </ul>
+  </div>
+
+
+
+
+<body onload="mapaPQ();">
+<p class="h4" id="titMap">{{tit}}</p>
+<div id="mapa" class="mx-auto"></div>
+<br>
+
+<script>
+    function mapaPQ() {   
+        const mapa = L.map('mapa').setView([22.1628756, -100.9774847], 13);
+        const tileURL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        let iconMarker = L.icon({
+          iconUrl: '/img/pq-icon.png',
+          iconSize: [30, 30],
+          iconAnchor: [15,30]
+        })
+        //z1
+        //L.circle([22.146030, -100.977040], {color: 'blue', radius: 268}).addTo(mapa);
+        //z2
+        //L.circle([22.156030, -100.977040], {color: 'red', radius: 268}).addTo(mapa);
+
+        L.tileLayer(tileURL).addTo(mapa)
+    
+        {{#each parq}}
+        L.marker([{{{latitud}}}, {{{longitud}}}], { icon: iconMarker }).addTo(mapa).bindPopup('Pq.{{{nParquimetro}}} - Zona.{{{zona}}}<br> {{{direccion}}}.').openPopup();
+        {{/each}} 
+    }
+
+    //buscar con enter
+    const buscar = document.querySelector('#buscar');
+    buscar.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            busca(buscar.value);
+        }
+    });
+
+    function busca(valorBusqueda) {
+      if (valorBusqueda.length > 0) {
+            window.location="/mapas/mapas/"+[valorBusqueda];
+      } else { 
+          var notification = alertify.notify('La busqueda debe de contener almenos un caracter', 'success', 5, function(){  console.log('dismissed'); });   
+      } 
+    }
+
+</script>

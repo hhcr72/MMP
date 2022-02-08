@@ -1,0 +1,77 @@
+<div class="container-fluid px-4">
+    <h3 id="titulo"><span class="material-icons md-24">person</span> - Usuarios</h3>
+
+    <table id="MyTable" class="table table-responsive-lg table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr id="MyTableHeader">
+                <th scope="col" class="text-center">Id</th>
+                <th scope="col" class="text-center">Nombre</th>
+                <th scope="col" class="text-center">Nombre usuario</th>
+                <th scope="col" class="text-center">Tipo Usuario</th>
+                <th scope="col" class="text-center">Modulo</th>
+                <th scope="col" class="text-center">Atributos Administrador</th>
+                <th scope="col" class="text-center">Atributos Mantenimiento</th>
+                <th scope="col" class="text-center">Atributos Recepción</th>
+                <th scope="col" class="text-center">Atributos Dirección</th>
+                <th scope="col" class="text-center">Atributos Operaciones</th>
+                <th scope="col" class="text-center">Menu
+
+                    <a href="auth/signup" title="Nuevo usuario">
+                        <span class="material-icons md-24">add_box</span>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td align="center">{{ id }}</td>
+                <td>{{ name }}</td>
+                <td>{{ username }}</td>
+                <td align="center">{{ usertype }}</td>
+                <td align="center">{{ module }}</td>
+                <td align="center">
+                    {{#if admin_atrib}}
+                        <input class="form-check-input" type="checkbox" id="admin_atrib" name="admin_atrib" checked/>
+                    {{else}}
+                      <input class="form-check-input" type="checkbox" id="admin_atrib" name="admin_atrib"/>
+                    {{/if}}
+                </td>
+                <td align="center">
+                    {{#if mto_atrib}}
+                        <input class="form-check-input" type="checkbox" id="mto_atrib" name="mto_atrib" checked/>
+                    {{else}}
+                      <input class="form-check-input" type="checkbox" id="mto_atrib" name="mto_atrib"/>
+                    {{/if}}
+                </td>
+                <td align="center">
+                    {{#if recepcion_atrib}}
+                        <input class="form-check-input" type="checkbox" id="recepcion_atrib" name="recepcion_atrib" checked/>
+                    {{else}}
+                      <input class="form-check-input" type="checkbox" id="recepcion_atrib" name="recepcion_atrib"/>
+                    {{/if}}
+                </td>
+                <td align="center">
+                    {{#if direccion_atrib}}
+                        <input class="form-check-input" type="checkbox" id="direccion_atrib" name="direccion_atrib" checked/>
+                    {{else}}
+                      <input class="form-check-input" type="checkbox" id="direccion_atrib" name="direccion_atrib"/>
+                    {{/if}}
+                </td>
+                <td align="center">
+                    {{#if operaciones_atrib}}
+                        <input class="form-check-input" type="checkbox" id="operaciones_atrib" name="operaciones_atrib" checked/>
+                    {{else}}
+                      <input class="form-check-input" type="checkbox" id="operaciones_atrib" name="operaciones_atrib"/>
+                    {{/if}}
+                </td>
+
+                <td align="center">
+                    <a href="/auth/edit/{{ id }}" onclick="" title="Editar registro">
+                        <span class="material-icons md-24">edit_note</span>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>

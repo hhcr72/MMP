@@ -1,0 +1,68 @@
+
+<div class="container-fluid px-4" >
+    <h3 id="titulo"><span class="material-icons md-24">local_parking</span> - Parquímetros</h3>
+
+    <table id="MyTable" class="table table-responsive-lg table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr id="MyTableHeader">
+                <th style="display:none;" scope="col"  class="text-center">Id</th>
+                <th scope="col"  class="text-center">No. PQ.</th>
+                <th scope="col"  class="text-center">No. PQa.</th>
+                <th scope="col"  class="text-center">Dirección</th>
+                <th scope="col"  class="text-center">Entre Calles</th>
+                <th scope="col"  class="text-center">Zona</th>
+                <th scope="col"  class="text-center">Ubicación</th>
+                <th scope="col"  class="text-center">Status</th>
+                <th scope="col"  class="text-center">Observaciones</th>
+                 {{#if user.admin_atrib}} 
+                <th scope="col"  class="text-center">Menu 
+                    <a href="parquimetros/add" title="Nuevo Parquímetro">
+                        <span class="material-icons md-24">add_box</span>
+                    </a>
+                </th>
+                {{/if}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#if user.admin_atrib}}
+            {{#each parq}}
+            <tr>
+                <td style="display:none;" align="center">{{ id }}</td>
+                <td align="center">{{ nParquimetro }}</td>
+                <td align="center">{{ nParqAnt }}</td>
+                <td>{{ direccion }}</td>
+                <td>{{ entreCalles }}</td>
+                <td align="center">{{ zona }}</td>
+                <td align="center">  <a href="/mapas/mapa/{{ id }}">{{ latitud }}; {{ longitud }}</a></td>
+                <td align="center">{{ status }}</td>
+                <td>{{ observaciones }} - {{user.admin_atrib}}</td> 
+                <td align="center">
+                    <a href="/parquimetros/edit/{{ id }}" onclick="" title="Editar registro">
+                        <span class="material-icons md-24">edit_note</span>
+                    </a>
+                    {{!-- <a href="#" onclick="return EliminaRegistro({{ id }}, 'usuario')" title="Borrar Registro"><span --}}
+                    {{!-- class="material-icons md-24">delete_outline</span></a> --}}
+                </td>
+            </tr>
+            {{/each}}
+            
+            {{else}}
+            
+            {{#each parq}}
+            <tr>
+                <td style="display:none;" align="center">{{ id }}</td>
+                <td align="center">{{ nParquimetro }}</td>
+                <td align="center">{{ nParqAnt }}</td>
+                <td>{{ direccion }}</td>
+                <td>{{ entreCalles }}</td>
+                <td align="center">{{ zona }}</td>
+                <td align="center">  <a href="/mapas/mapa/{{ id }}">{{ latitud }}; {{ longitud }}</a></td>
+                <td align="center">{{ status }}</td>
+                <td>{{ observaciones }}</td> 
+            </tr>
+            {{/each}}
+            {{/if}}
+
+        </tbody>
+    </table>
+

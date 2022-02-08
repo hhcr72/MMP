@@ -1,0 +1,194 @@
+<body class="text-center">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Editar parquímetro - {{ pq.nParquimetro }} </h4>
+                    </div>
+                    <div class="card-body ">
+                        <form id="formLogin" action="/parquimetros/edit/{{ pq.id }}" method="POST">
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <small>Status</small>
+                                        <select id="status" name="status" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm">
+                                            <option selected value="{{pq.status}}">{{pq.status}}</option>
+                                            <option value="ACTIVO">ACTIVO</option>
+                                            <option value="INACTIVO">INACTIVO</option>
+                                            <option value="REPARACION">REPARACION</option>
+                                            <option value="BAJA">BAJA</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <small>Zona</small>
+                                       <select id="zona1" name="zona" value="{{pq.zona}}" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm ">
+                                            <option selected value="{{pq.zona}}"> {{pq.zona}} </option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nParquimetro" name="nParquimetro"
+                                            value="{{pq.nParquimetro}}" class="form-control" id="floatingInput"
+                                            autofocus required placeholder="No. PQ.">
+                                        <label for="floatingInput">No. PQ.</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nParqAnt" name="nParqAnt" value="{{pq.nParqAnt}}"
+                                            class="form-control" id="floatingInput" required
+                                            placeholder="No. parquímetro anterior">
+                                        <label for="floatingInput">No. PQ. anterior</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="direccion" name="direccion" value="{{pq.direccion}}"
+                                        class="form-control" id="floatingInput" placeholder="Dirección">
+                                    <label for="floatingInput">Dirección</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="entreCalles" name="entreCalles" value="{{pq.entreCalles}}"
+                                        class="form-control" id="floatingInput" placeholder="Entre las calles de..">
+                                    <label for="floatingInput">Entre las calles de</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nllave" name="nllave" value="{{pq.nllave}}"
+                                            class="form-control" id="floatingInput" placeholder="No. de LLave">
+                                        <label for="floatingInput">No. de Llave</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="telefono" name="telefono" value="{{pq.telefono}}"
+                                            class="form-control" id="floatingInput" placeholder="Telefono">
+                                        <label for="floatingInput">Telefono</label>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="iccidChip" name="iccidChip" value="{{pq.iccidChip}}"
+                                            class="form-control" id="floatingInput" placeholder="iccidChipe">
+                                        <label for="floatingInput">iccidChip</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="imei" name="imei" value="{{pq.imei}}"
+                                            class="form-control" id="floatingInput" placeholder="Imei">
+                                        <label for="floatingInput">Imei</label>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="latitud" name="latitud" value="{{pq.latitud}}"
+                                            class="form-control" id="floatingInput" placeholder="Latitud">
+                                        <label for="floatingInput">Latitud</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="longitud" name="longitud" value="{{pq.longitud}}"
+                                            class="form-control" id="floatingInput" placeholder="Longitud">
+                                        <label for="floatingInput">Longitud</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nSerie" name="nSerie" value="{{pq.nSerie}}"
+                                            class="form-control" id="floatingInput" placeholder="No. Serie">
+                                        <label for="floatingInput">No. de Serie</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="codPatrimonial" name="codPatrimonial"
+                                            value="{{pq.codPatrimonial}}" class="form-control" id="floatingInput"
+                                            placeholder="Codigo Patrimonial">
+                                        <label for="floatingInput">Codigo Patrimonial</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="dependencia" name="dependencia" value="{{pq.dependencia}}"
+                                        class="form-control" id="floatingInput" placeholder="Dependencia">
+                                    <label for="floatingInput">Dependencia</label>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="cuentaPadre" name="cuentaPadre"
+                                            value="{{pq.cuentaPadre}}" class="form-control" id="floatingInput"
+                                            placeholder="Cuenta Padre">
+                                        <label for="floatingInput">Cuenta Padre</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="cuenta" name="cuenta" value="{{pq.cuenta}}"
+                                            class="form-control" id="floatingInput" placeholder="Cuenta">
+                                        <label for="floatingInput">Cuenta</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="observaciones" name="observaciones"
+                                    placeholder="Observaciones" id="floatingTextarea">{{pq.observaciones}}</textarea>
+                                <label for="floatingTextarea">Observaciones</label>
+                            </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <a href="/parquimetros" class="btn btn-secondary" role="button"
+                            aria-disabled="true">Cancelar</a>
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

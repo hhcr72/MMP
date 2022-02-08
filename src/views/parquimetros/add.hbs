@@ -1,0 +1,197 @@
+<body class="text-center">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Registrar nuevo parquímetro</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form id="formLogin" action="/parquimetros/add/" method="POST">
+                            
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <small>Status</small>
+                                        <select id="status" name="status" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                            <option selected value=""></option>
+                                            <option value="ACTIVO">ACTIVO</option>
+                                            <option value="INACTIVO">INACTIVO</option>
+                                            <option value="REPARACION">REPARACION</option>
+                                            <option value="BAJA">BAJA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                          <small>Zona</small>
+                                        <select id="zona" name="zona" class="form-select form-select-sm"
+                                            aria-label=".form-select-sm example">
+                                            <option selected value=""></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                                                   
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nParquimetro" name="nParquimetro"
+                                            value="{{pq.nParquimetro}}" class="form-control" id="floatingInput"
+                                            autofocus required placeholder="No. PQ.">
+                                        <label for="floatingInput">No. PQ.</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nParqAnt" name="nParqAnt" value=""
+                                            class="form-control" id="floatingInput" required
+                                            placeholder="No. parquímetro anterior">
+                                        <label for="floatingInput">No. PQ. anterior</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="direccion" name="direccion" value=""
+                                        class="form-control" id="floatingInput" placeholder="Dirección">
+                                    <label for="floatingInput">Dirección</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="entreCalles" name="entreCalles" value=""
+                                        class="form-control" id="floatingInput" placeholder="Entre las calles de..">
+                                    <label for="floatingInput">Entre las calles de</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nllave" name="nllave" value=""
+                                            class="form-control" id="floatingInput" placeholder="No. de LLave">
+                                        <label for="floatingInput">No. de Llave</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                       <input type="text" id="telefono" name="telefono" value=""
+                                            class="form-control" id="floatingInput" placeholder="Telefono">
+                                        <label for="floatingInput">Telefono</label>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+
+                           <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="iccidChip" name="iccidChip" value=""
+                                            class="form-control" id="floatingInput" placeholder="iccidChipe">
+                                        <label for="floatingInput">iccidChip</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                       <input type="text" id="imei" name="imei" value=""
+                                            class="form-control" id="floatingInput" placeholder="Imei">
+                                        <label for="floatingInput">Imei</label>
+                                      
+                                    </div>
+                                </div>
+                           </div>
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="latitud" name="latitud" value=""
+                                            class="form-control" id="floatingInput" placeholder="Latitud">
+                                        <label for="floatingInput">Latitud</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="longitud" name="longitud" value=""
+                                            class="form-control" id="floatingInput" placeholder="Longitud">
+                                        <label for="floatingInput">Longitud</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="nSerie" name="nSerie" value=""
+                                            class="form-control" id="floatingInput" placeholder="No. Serie">
+                                        <label for="floatingInput">No. de Serie</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="codPatrimonial" name="codPatrimonial"
+                                            value="" class="form-control" id="floatingInput"
+                                            placeholder="Codigo Patrimonial">
+                                        <label for="floatingInput">Codigo Patrimonial</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input type="text" id="dependencia" name="dependencia" value=""
+                                        class="form-control" id="floatingInput" placeholder="Dependencia">
+                                    <label for="floatingInput">Dependencia</label>
+                                </div>
+                            </div>
+                            
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="cuentaPadre" name="cuentaPadre" value=""
+                                            class="form-control" id="floatingInput" placeholder="Cuenta Padre">
+                                        <label for="floatingInput">Cuenta Padre</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" id="cuenta" name="cuenta"
+                                            value="" class="form-control" id="floatingInput"
+                                            placeholder="Cuenta">
+                                        <label for="floatingInput">Cuenta</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones"
+                                    id="floatingTextarea"></textarea>
+                                <label for="floatingTextarea">Observaciones</label>
+                            </div>
+
+                    </div>
+                    <div class="card-footer">
+                            <a href="/parquimetros" class="btn btn-secondary" role="button" aria-disabled="true">Cancelar</a>
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                     </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

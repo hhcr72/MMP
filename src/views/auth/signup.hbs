@@ -1,0 +1,88 @@
+<body class="text-center">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-7 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                         <h4>Registrar usuario</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form id="formLogin" action="/signup" method="post">
+                            <div class="form-floating mb-3">
+                                <input type="text" id="name" name="name" value="{{name}}" class="form-control" id="floatingInput"  autofocus required
+                                    placeholder="Nombre">
+                                <label for="floatingInput">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" id="user" name="username" value="{{username}}" class="form-control" id="floatingInput" required
+                                    placeholder="name@example.com">
+                                <label for="floatingInput">Correo</label>
+                            </div>
+                                {{!-- pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}" --}}
+                            <div class="form-floating mb-3">
+                                <input type="password" id="password" name="password"  class="form-control" id="floatingPassword" required
+                                    placeholder="Contraseña">
+                                <label for="floatingPassword">Contraseña</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" id="password2" name="password2"  class="form-control" required
+                                    id="floatingPassword" placeholder="Confirma Contraseña">
+                                <label for="floatingPassword">Confirma Contraseña</label>
+                                  <small class="text-muted">Las contraseñas debe tener al menos 8 caracteres, letras mayusculas, minúsculas, al menos un dígito y puede contener caracteres especiales</small>
+                            </div>
+
+                            <small><strong>Tipo de Usuario</strong></small>  
+                            <select id="usertype" name="usertype" class="form-select form-select-sm" aria-label=".form-select-sm example" required>
+                               <option value=""</option></option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Direccion">Direccion</option>
+                                <option value="Recepcion">Recepcion</option>
+                                <option value="Mantenimiento">Mantenimiento</option>
+                                <option value="Operaciones">Operaciones</option>
+                                <option value=""></option>
+                            </select>
+                            <small><strong>Modulos de Sistema</strong></small>  
+                            <select id="module" name="module" class="form-select form-select-sm" aria-label=".form-select-sm example" required>
+                                {{!-- <option value=""</option> --}}
+                                <option value="Monitoreo y Mantenimiento">Monitoreo y Mantenimiento</option>
+                                {{!-- <option value="Direccion">Direccion</option> --}}
+                            </select>
+                            <br>
+                            <p><strong>Atributos de sistema</strong></p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="admin_atrib" name="admin_atrib"/>
+                                <label class="form-check-label" for="admin_atrib">Administrador</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="mto_atrib" name="mto_atrib" />
+                                <label class="form-check-label" for="mto_atrib">Mantenimiento</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="recepcion_atrib" name="recepcion_atrib" />
+                                <label class="form-check-label" for="recepcion_atrib">Recepción</label>
+                            </div>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="direccion_atrib" name="direccion_atrib" />
+                                <label class="form-check-label" for="direccion_atrib">Dirección</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="operaciones_atrib" name="operaciones_atrib" />
+                                <label class="form-check-label" for="operaciones_atrib">Operaciones</label>
+                            </div>
+                    
+                            <div class="card-footer">
+                                <a href="/auth" class="btn btn-secondary" role="button"
+                                     aria-disabled="true">Cancelar</a>
+                                    <button class="btn btn-primary" type="submit">Registrar</button>  
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

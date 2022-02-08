@@ -1,0 +1,122 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+.main {
+    height: 100vh;
+    padding: 3em;
+    margin-top: 50px;
+}
+
+
+body {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    min-height: 200vh; 
+    background-color: #efefef;
+    /* background-color: #f5f1e3; */
+    margin-top: 7rem;
+}
+
+.card-header {
+    background:  #002f87; 
+    color: #c2b59b; 
+    opacity: 0.9;
+}
+
+#MyTableHeader {
+    background-color:  #002f87; 
+    color: #f5f1e3;
+    opacity: 0.9;
+}
+
+#logoFondo {
+    background: url('/img/logo.png');
+    background-size: 250px;
+    background-repeat: no-repeat;
+}
+
+
+/* navegador */
+.navbar {
+    z-index: 100000;
+    filter:alpha(opacity=70);
+    /* -moz-opacity:.50; */
+    opacity:.9; 
+    padding: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+
+}
+
+.dropdown-menu {
+    /* opacity: 0.9; */
+    font-size: 12px;
+} 
+
+/* navegador fijo en la cabecera */
+#bar-menu { 
+    position:fixed; 
+   /* padding: 10px 5px 10px 5px;   /* margen con valores: arriba - derecha - abajo - izquierda */  
+   top: 0px;                    /* Distancia hasta el borde superior */ 
+    /*left: 0px;*/            /* Distancia hasta el borde izquierdo */
+    width:100%; 
+    background: url('/img/SLP_logo.svg');
+    background-size: 65px;
+    background-repeat: no-repeat;
+    background-color:#002f87;
+    /* z-index: 1;               hace que la capa sea opaca   */
+    
+} 
+
+div.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    border-radius: .5rem;
+  }
+
+
+/* botones */
+.btn-bd-primary{font-weight: 600;color: #fff;background-color: #002f87;border-color: #7952b3;}
+.btn-bd-primary:hover,.btn-bd-primary:active{color: #fff;background-color: #61428f;border-color: #61428f;}
+.btn-bd-primary:focus{box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25)}
+
+.btn-bd-secondary{font-weight: 600;color: #fff;background-color: #c2b59b;border-color: #f5f1e3;}
+.btn-bd-secondary:hover,.btn-bd-secondary:active{color: #fff;background-color: #c2b59b;border-color: #c2b59b;}
+.btn-bd-secondary:focus{box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25)} 
+
+
+#mapa {
+    width: 80%;
+    height: 700px;
+    margin-top: 5px;
+    border: 1px;
+    border-color: #aaaaaa;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #333;
+ 
+}
+
+#titMap {
+    text-shadow: 3px 5px #8888;
+    padding: 30px;
+    text-align: center;
+}
+
+
+#titulo {
+    text-shadow: 3px 5px #8888;
+}
+#usuario {
+    font-size: 10px;
+    color: #fff
+}
+
+#zona {
+    padding: 30px;   
+}
+
+#labAveria {
+    font-size: 15px;
+}

@@ -1,0 +1,137 @@
+<nav class="navbar navbar-expand-md navbar-dark" id="bar-menu">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/" id="titulo">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MyM Parquímetros</a>
+    <a class="nav-brand" href="/profile" id="usuario" >{{user.name}} {{user.usertype}}</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+         {{#if user}} 
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">
+          <span class="material-icons md-24 align-middle">dashboard</span>
+          Dashboard</a>
+        </li>
+  
+        {{#if user.admin_atrib}} 
+        <li class="nav-item">
+          <a class="nav-link" href="/averias">
+          <span class="material-icons md-24 align-middle">report_problem</span>
+          Averias</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">local_parking</span>
+          Parquímetros</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/parquimetros">Parquímetros</a></li>
+            <li><a class="dropdown-item" href="/mapas/mapa">Mapa de Parquímetros</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">contact_mail</span>
+          Perfil</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/auth">Usuarios</a></li>
+          </ul>
+        </li>
+        {{/if}}        
+
+        {{#if user.recepcion_atrib}} 
+        <li class="nav-item">
+          <a class="nav-link" href="/averias">
+          <span class="material-icons md-24 align-middle">report_problem</span>
+          Averias</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">local_parking</span>
+          Parquímetros</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/parquimetros">Parquímetros</a></li>
+            <li><a class="dropdown-item" href="/mapas/mapa">Mapa de Parquímetros</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">contact_mail</span>
+          Perfil</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+          </ul>
+        </li>
+        {{/if}}
+
+        {{#if user.mto_atrib}} 
+        <li class="nav-item">
+          <a class="nav-link" href="/averias">
+          <span class="material-icons md-24 align-middle">report_problem</span>
+          Averias</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">local_parking</span>
+          Parquímetros</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/parquimetros">Parquímetros</a></li>
+            <li><a class="dropdown-item" href="/mapas/mapa">Mapa de Parquímetros</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">contact_mail</span>
+          Perfil</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+          </ul>
+        </li>
+        {{/if}}
+
+        {{#if user.direccion_atrib}} 
+        <li class="nav-item">
+          <a class="nav-link" href="/averias">
+          <span class="material-icons md-24 align-middle">report_problem</span>
+          Averias</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">local_parking</span>
+          Parquímetros</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/parquimetros">Parquímetros</a></li>
+            <li><a class="dropdown-item" href="/mapas/mapa">Mapa de Parquímetros</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-icons md-24 align-middle">contact_mail</span>
+          Perfil</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+          </ul>
+        </li>
+        {{/if}}
+
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="salir()">
+          <span class="material-icons md-24 align-middle">logout</span>  
+          Salir</a>
+        </li>
+
+        {{ else }}
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/signin">
+          <span class="material-icons md-24 align-middle">login</span>
+          Iniciar Sessión</a>
+        </li>
+        {{/if}}
+
+      </ul>
+    </div>
+  </div>
+</nav>

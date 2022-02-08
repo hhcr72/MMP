@@ -1,0 +1,81 @@
+<body class="text-center">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Registrar Averia</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form id="formLogin" action="/averias/add/" method="POST">
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        {{!-- <medium>Parquímetro</medium> --}}
+                                        <input class="form-control" name="pq" list="datalistPQs" id="datalistPQ"
+                                            placeholder="No. de Parquímetro  a Buscar..." autofocus required>
+                                        <datalist id="datalistPQs">
+                                            {{#each pqs}}
+                                            <option value="{{nParquimetro}} - {{direccion}} ">
+                                                {{/each}}
+                                        </datalist>
+                                        <label for="floatingSelect">No. Parquímetro</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" name="cod" list="dtCA" id="dtCAv"
+                                            placeholder="Codigo a Buscar..." required>
+                                        <datalist id="dtCA">
+                                            {{#each cod}}
+                                            <option value="{{codigoAveria}} - {{descAveria}} ">
+                                                {{/each}}
+                                        </datalist>
+                                        <label for="floatingSelect">Código Averia</label>
+                                    </div>
+
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" name="reportaAveria" list="dtQR" id="dtQRe"
+                                            placeholder="Buscar quien reporta..." required>
+                                        <datalist id="dtQR">
+                                            <option value="USUARIO">
+                                            <option value="VERIFICADOR">
+                                            <option value="RECAUDADOR">
+                                            <option value="SUPERVISOR">
+                                            <option value="MONITOREO">
+                                        </datalist>
+                                        <label for="floatingSelect">Quién Reporta</label>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="placas" class="form-control" id="floatingInput"
+                                        placeholder="VCM321A">
+                                    <label for="floatingInput">&nbsp;Placas de Vehículo (opcional)</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" id="observaciones" name="observaciones"
+                                        placeholder="Observaciones" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">&nbsp;Observaciones</label>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <a href="/averias" class="btn btn-secondary" role="button"
+                                    aria-disabled="true">Cancelar</a>
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        <script>
+            document.getElementById('pq').addEventListener('keydown', function(k){
+    if(k.keyCode == 13) return false;
+});
+    </script>
+    </script>

@@ -1,0 +1,230 @@
+<body class="text-center">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><span class="material-icons md-24 align-middle">build</span>{{av.idAveria}}  <span class="material-icons md-24 align-middle">local_parking</span>{{av.parqAveria}} - {{av.nParqAnt}} <span class="material-icons md-24 align-middle">key</span>{{av.nllave}}</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form id="formLogin" action="/averias/repair/{{ av.idAveria }}" method="POST">
+                            <div class="row">
+                                <div class="col">
+                                    <label id="labAveria" for="disabledTextInput" class="form-label"><b>Fecha :</b> </label>
+
+                                    <label id="labAveria" for="disabledTextInput" class="form-label"> {{av.fecAveria}}</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label id="labAveria" for="disabledTextInput" class="form-label"><b>Dirección: </b></label>
+                                    <label id="labAveria" for="disabledTextInput" class="form-label">{{av.direccion}}</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label id="labAveria" for="disabledTextInput" class="form-label"><b>Entre calles: </b></label>
+                                    <label id="labAveria" for="disabledTextInput" class="form-label">{{av.entreCalles}}</label>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label id="labAveria" for="disabledTextInput" class="form-label"><b>Averia: </b></label>
+                                    <label id="labAveria" for="disabledTextInput" class="form-label">{{av.codigoAveria}} -
+                                        {{av.tipoAveria}}</label>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label id="labAveria" for="disabledTextInput" class="form-label"><b>Obs: </b></label>
+                                    <label id="labAveria" for="disabledTextInput" class="form-label"> {{av.obsAveria}}</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" value="{{ av.codDiagMM }} - {{av.tipoDiagMM}}"
+                                            name="cDiag" list="datalistCDs" id="datalistCD" autofocus required>
+                                        <datalist id="datalistCDs">
+                                            {{#each diag}}
+                                            <option value="{{codigoDiag}} - {{diagnosticoDiag}}">
+                                                {{/each}}
+                                        </datalist>
+                                        <label for="floatingSelect">Código de Diagnóstico</label>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        {{#if av.rollo}}
+                                        <input class="form-check-input" name="rollo" type="checkbox"
+                                            id="rollo" checked>
+                                        <label class="form-check-label" for="rollo">Rollo</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="rollo" type="checkbox"
+                                            id="rollo">
+                                        <label class="form-check-label" for="rollo">Rollo</label>
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="col">
+                                        {{#if av.bateria}}
+                                        <input class="form-check-input" name="bateria" type="checkbox"
+                                            id="bateria" checked>
+                                        <label class="form-check-label" for="bateria">Batería</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="bateria" type="checkbox"
+                                            id="bateria">
+                                        <label class="form-check-label" for="bateria">Batería</label>
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="col">
+                                        {{#if av.boton}}
+                                        <input class="form-check-input" name="boton" type="checkbox"
+                                            id="boton" checked>
+                                        <label class="form-check-label" for="boton">Bontón</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="boton" type="checkbox"
+                                            id="boton">
+                                        <label class="form-check-label" for="boton">Bontón</label>
+                                        {{/if}}
+                                    </div>
+
+                                    
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        {{#if av.impresora}}
+                                        <input class="form-check-input" name="impresora" type="checkbox"
+                                            id="impresora" checked>
+                                        <label class="form-check-label" for="impresora">Impresora</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="impresora" type="checkbox"
+                                            id="impresora">
+                                        <label class="form-check-label" for="impresora">Impresora</label>
+                                        {{/if}}
+                                    </div>
+                                    <div class="col">
+                                        {{#if av.pantalla}}
+                                        <input class="form-check-input" name="pantalla" type="checkbox"
+                                            id="flexCheckChecked" checked>
+                                        <label class="form-check-label" for="flexCheckChecked">Pantalla</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="pantalla" type="checkbox" 
+                                            id="flexCheckChecked">
+                                        <label class="form-check-label" for="flexCheckChecked">Pantalla</label>
+                                        {{/if}}
+                                    </div>
+                                    <div class="col">
+                                        {{#if av.selector}}
+                                        <input class="form-check-input" name="selector" type="checkbox" id="selector" checked>
+                                        <label class="form-check-label" for="selector">Selector</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="selector" type="checkbox" id="selector">
+                                        <label class="form-check-label" for="selector">Selector</label>
+                                        {{/if}}
+                                    </div>                                      
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        {{#if av.panel}}
+                                        <input class="form-check-input" name="panel" type="checkbox" id="panel" checked>
+                                        <label class="form-check-label" for="panel">Panel</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="panel" type="checkbox" id="panel">
+                                        <label class="form-check-label" for="panel">Panel</label>
+                                        {{/if}}
+                                    </div>  
+                                    <div class="col">
+                                        {{#if av.scrow}}
+                                        <input class="form-check-input" name="scrow" type="checkbox" id="scrow" checked>
+                                        <label class="form-check-label" for="scrow">Scrow</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="scrow" type="checkbox" id="scrow">
+                                        <label class="form-check-label" for="scrow">Scrow</label>
+                                        {{/if}}
+                                        
+                                    </div>
+                                    <div class="col">
+                                        {{#if av.antitrombon}}
+                                        <input class="form-check-input" name="antitrombon" type="checkbox"
+                                            id="antitrombon" checked>
+                                        <label class="form-check-label" for="antitrombon">Antitrombon</label>
+                                        {{else}}
+                                         <input class="form-check-input" name="antitrombon" type="checkbox"
+                                            id="antitrombon">
+                                        <label class="form-check-label" for="antitrombon">Antitrombon</label>
+                                        {{/if}}
+                                    </div>
+                                    
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        {{#if av.modem}}
+                                        <input class="form-check-input" name="modem" type="checkbox" id="modem" checked>
+                                        <label class="form-check-label" for="modem">Modém</label>
+                                        {{else}}
+                                        <input class="form-check-input" name="modem" type="checkbox" id="modem">
+                                        <label class="form-check-label" for="modem">Modém</label>
+                                        {{/if}}
+                                    </div>
+                                    <div class="col">
+                                        {{#if av.micros}}
+                                        <input class="form-check-input" name="micros" type="checkbox" id="micros" checked>
+                                        <label class="form-check-label" for="micros">Micros</label>
+                                        {{else}}
+                                            <input class="form-check-input" name="micros" type="checkbox" id="micros">
+                                        <label class="form-check-label" for="micros">Micros</label>
+                                        {{/if}}
+                                    </div> 
+                                    <div class="col">
+                                        {{#if av.logica}}
+                                        <input class="form-check-input" name="logica" type="checkbox" id="logica" checked>
+                                        <label class="form-check-label" for="logica">Logica</label>
+                                        {{else}}
+                                            <input class="form-check-input" name="logica" type="checkbox" id="logica">
+                                        <label class="form-check-label" for="logica">Logica</label>
+                                        {{/if}}
+                                    </div> 
+
+                                </div>
+
+
+
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" id="observaciones" name="obsMM"
+                                        placeholder="Observaciones" id="floatingTextarea">{{av.obsMM}}</textarea>
+                                    <label for="floatingTextarea">Observaciones</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" name="estado">
+                                        <option value="{{av.estado}}">{{av.estado}}</option>
+                                        <option value="ACTIVO">ACTIVO</option>
+                                        <option value="EN PROCESO">EN PROCESO</option>
+                                        <option value="FINALIZADO">FINALIZADO</option>
+                                    </select>
+                                    <label for="floatingSelect">Status</label>
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                <a href="/averias" class="btn btn-secondary" role="button"
+                                    aria-disabled="true">Cancelar</a>
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

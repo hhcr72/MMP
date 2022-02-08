@@ -1,0 +1,117 @@
+
+<div class="container-fluid px-4" >
+
+    <h3 class="ml-auto" id="titulo"><span class="material-icons md-24">report_problem</span> - Averias Activas</h3>
+ 
+    <table id="MyTable" class="table table-responsive-lg table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr id="MyTableHeader">
+                <th scope="col"  class="text-center">Id</th>
+                <th scope="col"  class="text-center">Fecha</th>
+                <th scope="col"  class="text-center">PQ</th>
+                <th scope="col"  class="text-center">Averia</th>
+                <th scope="col"  class="text-center">Reporto</th>
+                <th scope="col"  class="text-center">Observaciones</th>
+                <th scope="col"  class="text-center">Técnico</th>
+                <th scope="col"  class="text-center">Status</th>
+                <th scope="col"  class="text-center">Menu
+
+                    {{#if user.admin_atrib}}
+                    <a href="averias/add" title="Nueva Averia">
+                        <span class="material-icons md-24">add_box</span>
+                    </a>
+                    {{/if}}
+
+                    {{#if user.recepcion_atrib}}
+                    <a href="averias/add" title="Nueva Averia">
+                        <span class="material-icons md-24">add_box</span>
+                    </a>
+                    {{/if}}
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{!-- administrador --}}
+            {{#if user.admin_atrib}}
+            {{#each averias}}
+            <tr>
+                <td align="center">{{ idAveria }}</td>
+                <td align="center">{{ fecAveria }}</td>
+                <td align="center">{{ parqAveria }}</td>
+                <td align="center">PQ.{{ parqAveria }} - {{ direccion }} - {{ codigoAveria }}  {{ tipoAveria }} </td>   
+                <td align="center">{{ reportaAveria }}</td>
+                <td>{{ obsAveria }}</td>
+                <td align="center">{{ tecnicoMM }}</td>
+                <td align="center">{{ estado }} {{user.mto_atrib}}</td>
+                <td align="center"> 
+                    <a href="/averias/edit/{{ idAveria }}" onclick="" title="Editar registro">
+                        <span class="material-icons md-24">edit_note</span>
+                    </a>
+                    <a href="/averias/repair/{{ idAveria }}" onclick="" title="Reparación">
+                        <span class="material-icons ms-24">build</span>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/if}}
+            
+            {{!-- mantenimiento --}}
+            {{#if user.mto_atrib}}
+            {{#each averias}}
+            <tr>
+                <td align="center">{{ idAveria }}</td>
+                <td align="center">{{ fecAveria }}</td>
+                <td align="center">{{ parqAveria }}</td>
+                <td align="center">PQ.{{ parqAveria }} - {{ direccion }} - {{ codigoAveria }}  {{ tipoAveria }} </td>   
+                <td align="center">{{ reportaAveria }}</td>
+                <td>{{ obsAveria }}</td>
+                <td align="center">{{ tecnicoMM }}</td>
+                <td align="center">{{ estado }} {{user.mto_atrib}}</td>
+                <td align="center"> 
+                    <a href="/averias/repair/{{ idAveria }}" onclick="" title="Reparación">
+                        <span class="material-icons ms-24">build</span>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/if}}
+           
+            {{!-- recepcion --}}
+            {{#if user.recepcion_atrib}}
+            {{#each averias}}
+            <tr>
+                <td align="center">{{ idAveria }}</td>
+                <td align="center">{{ fecAveria }}</td>
+                <td align="center">{{ parqAveria }}</td>
+                <td align="center">PQ.{{ parqAveria }} - {{ direccion }} - {{ codigoAveria }}  {{ tipoAveria }} </td>   
+                <td align="center">{{ reportaAveria }}</td>
+                <td>{{ obsAveria }}</td>
+                <td align="center">{{ tecnicoMM }}</td>
+                <td align="center">{{ estado }} {{user.mto_atrib}}</td>
+                <td align="center"> 
+                    <a href="/averias/edit/{{ idAveria }}" onclick="" title="Editar registro">
+                        <span class="material-icons md-24">edit_note</span>
+                    </a>
+                </td>
+            </tr>
+            {{/each}}
+            {{/if}}
+
+            {{!-- direccion --}}
+            {{#if user.direccion_atrib}}
+            {{#each averias}}
+            <tr>
+                <td align="center">{{ idAveria }}</td>
+                <td align="center">{{ fecAveria }}</td>
+                <td align="center">{{ parqAveria }}</td>
+                <td align="center">PQ.{{ parqAveria }} - {{ direccion }} - {{ codigoAveria }}  {{ tipoAveria }} </td>   
+                <td align="center">{{ reportaAveria }}</td>
+                <td>{{ obsAveria }}</td>
+                <td align="center">{{ tecnicoMM }}</td>
+                <td align="center">{{ estado }} {{user.mto_atrib}}</td>
+            </tr>
+            {{/each}}
+            {{/if}}
+        </tbody>
+    </table>
