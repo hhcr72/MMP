@@ -72,6 +72,7 @@ router.get('/edit/:id', isLoggedIn, async (req, res) => {
     res.render('auth/edit', {user_: user_[0]});
   });
 
+
 //guardar actualizacion de usuario
 router.post('/update/:id', isLoggedIn, async (req, res) => {
     const { id } = req.params;

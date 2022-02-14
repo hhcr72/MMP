@@ -54,7 +54,6 @@ router.post('/add', isLoggedIn, valAveria, async (req, res) => {
   res.redirect('/averias');
 });
 
-
 //editar averia
 router.get('/edit/:id', isLoggedIn, async (req, res) => {
   const { id } = req.params;
