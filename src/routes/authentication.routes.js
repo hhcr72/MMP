@@ -3,9 +3,10 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const pool = require('../database');    
+const helpers = require("../lib/helpers");
 
 
-const { isLoggedIn, isNotLoggedIn, valipass, valiuser } = require('../lib/auth');
+const { isLoggedIn, isNotLoggedIn, valipass, valiuser, valipass2 } = require('../lib/auth');
 
 router.get('/', isLoggedIn, async (req, res) => {
     const users = await pool.query('SELECT * FROM users order by id desc');
@@ -43,6 +44,23 @@ router.get('/logout', (req, res) => {
     res.redirect('/signin')
 }); 
 
+//contraseña
+router.get('/pass/:id', isLoggedIn, (req, res) => {   
+    res.render('pass');
+}); 
+
+//guardar actualizacion de contraseña
+router.post('/passUpdate/:id', isLoggedIn, valipass2, async (req, res) => {
+    const { id } = req.params;
+    const oldpassword = req.body.password
+    const password = await helpers.encryptPassword(oldpassword);
+    const ActualizaDatos = {
+        password
+    };    
+    await pool.query('UPDATE users set ? WHERE id = ?', [ActualizaDatos, id]);
+    req.flash('success', 'Contraseñe actualizada correctamente');
+    res.redirect('/profile');
+  });
 
 //editar usuario
 router.get('/edit/:id', isLoggedIn, async (req, res) => {

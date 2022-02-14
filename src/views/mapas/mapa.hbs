@@ -47,7 +47,7 @@
         L.tileLayer(tileURL).addTo(mapa)
     
         {{#each parq}}
-        L.marker([{{{latitud}}}, {{{longitud}}}], { icon: iconMarker }).addTo(mapa).bindPopup('Pq.{{{nParquimetro}}} - Zona.{{{zona}}}<br> {{{direccion}}}.').openPopup();
+        L.marker([{{{latitud}}}, {{{longitud}}}], { icon: iconMarker }).addTo(mapa).bindPopup('Pq.{{{nParquimetro}}} - a{{nParqAnt}} - Zona.{{{zona}}}<br> {{{direccion}}}.').openPopup();
         {{/each}} 
     }
 

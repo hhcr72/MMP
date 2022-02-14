@@ -29,19 +29,18 @@ module.exports = {
      return next()
   },
 
-  // async valipass2(req, res, next) {
-  //   const errors = [];
-  //   console.log('entra1');
-  //   const { password, password2 } = req.body;
-  //    //verifico que coincidan contraseñas
-  //    if (password != password2) {
-  //      console.log('entra2');
-  //      errors.push({text: 'Las contraseñas no coiciden'});
-  //      res.render('/profile', {errors, username});
-  //      return
-  //    };
-  //    return next()
-  // },
+  async valipass2(req, res, next) {
+    const errors = [];
+    const { password, password2 } = req.body;
+     //verifico que coincidan contraseñas
+    if (password != password2) {
+      console.log('no coiciden');
+      errors.push({text: 'Las contraseñas no coiciden'});
+      res.render("profile", {errors});
+      return 
+     };
+     return next()
+  },
 
   //validacion de registro de usuario
   async valiuser(req, res, next) {

@@ -11,7 +11,7 @@ const { valAveria } = require('../lib/validations')
 router.get('/', isLoggedIn, async (req, res) => {
     const averias = await pool.query('SELECT mmp_averias.idAveria, date_format(mmp_averias.fecAveria, "%d-%m-%Y %H:%i") as fecAveria, ' +
     'mmp_averias.parqAveria, mmp_parquimetros.direccion, mmp_averias.codigoAveria, mmp_averias.tipoAveria, mmp_averias.reportaAveria, ' +
-    'mmp_averias.obsAveria, mmp_averias.estado, mmp_averias.tecnicoMM ' +
+    'mmp_averias.placas, mmp_averias.obsAveria, mmp_averias.estado, mmp_averias.tecnicoMM ' +
     'FROM mmp_averias ' +
     'LEFT JOIN mmp_parquimetros ON mmp_averias.parqAveria = mmp_parquimetros.nParquimetro ' + 
     'WHERE mmp_averias.estado = "ACTIVO" OR mmp_averias.estado = "EN PROCESO" order by idAveria asc ');

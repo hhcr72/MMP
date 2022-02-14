@@ -7,15 +7,10 @@
                 </div>
                 <div class="card-body">
                     <h6> <b> Usuario: </b> {{ user.username }}</h6>
-                </div>
-                <div class="card-body">
                     <h6> <b> Nombre: </b> {{ user.name }}</h6>
-                </div>
-                <div class="card-body">
                     <h6> <b> Tipo: </b> {{ user.usertype }}</h6>
                 </div>
                 <div class="mb-3">
-                    {{!-- <button class="btn btn-success btn-block"> Cambia Contraseña </button> --}}
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                         data-bs-whatever="@mdo">Cambiar Contraseña</button>
                 </div>
@@ -26,20 +21,22 @@
 </div>
 
 
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Actualizar contreseña</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> Actualizar contreseña <span
+                        class="material-icons md-24 align-middle">password</span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formPass" role="form" action="/auth/pass/{{ user.id }}" method="POST">
+                <form id="formPass" action="/passUpdate/{{ user.id }}" method="POST">
                     <div class="card-body">
                         <div class="mb-3">
                             <div class="card-body">
                                 <h6> <b> Usuario: </b> {{ user.username }}</h6>
+                                <h6> <b> Nombre: </b> {{ user.name }}</h6>
+                                <h6> <b> Tipo: </b> {{ user.usertype }}</h6>
                             </div>
                             {{!-- pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}" --}}
                             <div class="form-floating mb-3">
@@ -48,19 +45,19 @@
                                 <label for="floatingPassword">Contraseña</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" id="password2" name="password2"  class="form-control" required
+                                <input type="password" id="password2" name="password2" class="form-control" required
                                     id="floatingPassword" placeholder="Confirma Contraseña">
                                 <label for="floatingPassword">Confirma Contraseña</label>
                                 <small class="text-muted">Las contraseñas debe tener al menos 8 caracteres, letras
                                     mayusculas,
                                     minúsculas, al menos un dígito y puede contener caracteres especiales</small>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" type="submit">Actualizar</button>
-                            </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" type="submit">Actualizar</button>
+                    </div>
                 </form>
-    </div>
-</div>
+            </div>
+        </div>
