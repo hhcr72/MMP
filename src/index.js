@@ -30,13 +30,17 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 //middlewares 
+
 //muestra datos en consola
 app.use(session({
-    secret: 'mmp',
+    secret: '$m4nt3n1m13nt0&',
     resave: false,
     saveUninitialized: false,
+    cookie: { secure: true },
     store: MySQLStore(database)
 }));
+
+
 app.use(flash());
 app.use(morgan('dev')); 
 app.use(express.urlencoded({extended: false}));

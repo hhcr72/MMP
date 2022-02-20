@@ -35,13 +35,11 @@
                 <td align="center">{{ zona }}</td>
                 <td align="center">  <a href="/mapas/mapa/{{ nParquimetro }}">{{ latitud }}; {{ longitud }}</a></td>
                 <td align="center">{{ status }}</td>
-                <td>{{ observaciones }} - {{user.admin_atrib}}</td> 
+                <td>{{ observaciones }}</td> 
                 <td align="center">
                     <a href="/parquimetros/edit/{{ id }}" onclick="" title="Editar registro">
                         <span class="material-icons md-24">edit_note</span>
                     </a>
-                    {{!-- <a href="#" onclick="return EliminaRegistro({{ id }}, 'usuario')" title="Borrar Registro"><span --}}
-                    {{!-- class="material-icons md-24">delete_outline</span></a> --}}
                 </td>
             </tr>
             {{/each}}
